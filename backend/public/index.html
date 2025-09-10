@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Big/Small — Demo</title>
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Big / Small — Demo</h1>
+      <p class="tag">Learning build • <strong>NO REAL MONEY</strong> • UPI QR is DEMO</p>
+    </header>
+
+    <section class="grid-2">
+      <div class="card" id="register-card">
+        <h2>1) Create Demo Account</h2>
+        <p class="muted">You get 1000 virtual credits. No real money involved.</p>
+        <div class="row">
+          <input id="name" placeholder="Your name (optional)" />
+          <button id="btn-register">Register</button>
+        </div>
+        <div id="register-msg" class="muted"></div>
+      </div>
+
+      <div class="card" id="status-card" hidden>
+        <h2>2) Balance & Actions</h2>
+        <div class="balance">
+          Balance: <span id="balance">—</span> credits
+        </div>
+        <div class="row">
+          <input id="amount" type="number" placeholder="Bet amount" min="1" />
+          <button class="btn small" id="bet-small">Bet Small (S)</button>
+          <button class="btn big" id="bet-big">Bet Big (B)</button>
+        </div>
+        <div class="row">
+          <input id="withdraw-amount" type="number" placeholder="Withdraw amount" min="1" />
+          <button id="btn-withdraw">Mock Withdraw</button>
+        </div>
+        <div id="action-msg" class="muted"></div>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="card" id="history-card" hidden>
+        <h2>3) Recent Rounds</h2>
+        <table class="table">
+          <thead>
+            <tr><th>Time</th><th>Round</th><th>Bet</th><th>Outcome</th><th>Δ</th><th>Bal After</th></tr>
+          </thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </div>
+
+      <div class="card" id="ledger-card" hidden>
+        <h2>4) Ledger (Mock Payouts)</h2>
+        <table class="table">
+          <thead>
+            <tr><th>Time</th><th>Type</th><th>Amount</th><th>UPI</th><th>Status</th></tr>
+          </thead>
+          <tbody id="ledger-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="header-row">
+        <h2>UPI QR — DEMO Generator</h2>
+        <span class="pill danger">DEMO • NOT FOR REAL PAYMENTS</span>
+      </div>
+      <div class="row">
+        <input id="qr-payee" placeholder="Payee UPI (e.g. demo@upi)" />
+        <input id="qr-name" placeholder="Payee Name (optional)" />
+        <input id="qr-amount" type="number" step="0.01" placeholder="Amount (optional)" />
+        <input id="qr-note" placeholder="Note (optional)" />
+        <button id="btn-qr">Generate DEMO QR</button>
+      </div>
+      <div id="qr-wrap" class="qr-wrap" hidden>
+        <div class="qr-badge">DEMO</div>
+        <img id="qr-img" alt="UPI QR DEMO">
+        <div class="muted small" id="qr-uri"></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Demo only — no real funds. © DIFMO (Sample)</p>
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
